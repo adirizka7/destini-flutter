@@ -9,7 +9,7 @@ class Destini extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(),
       home: StoryPage(),
-    );
+    ); // MaterialApp
   }
 }
 
@@ -25,6 +25,12 @@ class _StoryPageState extends State<StoryPage> {
     return Scaffold(
       body: Container(
         //TODO: Step 1 - Add background.png to this Container as a background image.
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/background.png"),
+            fit: BoxFit.cover,
+          ), // DecorationImage
+        ), // BoxDecoration
         padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
         constraints: BoxConstraints.expand(),
         child: SafeArea(
@@ -39,10 +45,10 @@ class _StoryPageState extends State<StoryPage> {
                     'Story text will go here.',
                     style: TextStyle(
                       fontSize: 25.0,
-                    ),
-                  ),
-                ),
-              ),
+                    ), // TextStyle
+                  ), // Text
+                ), // Center
+              ), // Expanded
               Expanded(
                 flex: 2,
                 child: FlatButton(
@@ -56,13 +62,13 @@ class _StoryPageState extends State<StoryPage> {
                     'Choice 1',
                     style: TextStyle(
                       fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ),
+                    ), // TextStyle
+                  ), // Text
+                ), // FlatButton
+              ), // Expanded
               SizedBox(
                 height: 20.0,
-              ),
+              ), // SizedBox
               Expanded(
                 flex: 2,
                 //TODO: Step 26 - Use a Flutter Visibility Widget to wrap this FlatButton.
@@ -78,15 +84,15 @@ class _StoryPageState extends State<StoryPage> {
                     'Choice 2',
                     style: TextStyle(
                       fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ),
+                    ), // TextStyle
+                  ), // Text
+                ), // FlatButton
+              ), // Expanded
             ],
-          ),
-        ),
-      ),
-    );
+          ), // Column
+        ), // SafeArea
+      ), // Container
+    ); // Scaffold
   }
 }
 
