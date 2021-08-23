@@ -33,21 +33,43 @@ class StoryBrain {
         choice2: '')
   ];
 
-  int storyNumber;
+  int storyNumber = 0;
 
   String getStory() {
-    return _storyData[0].storyTitle;
+    return _storyData[storyNumber].storyTitle;
   }
 
   String getChoice1() {
-    return _storyData[1].choice1;
+    return _storyData[storyNumber].choice1;
   }
 
   String getChoice2() {
-    return _storyData[2].choice2;
+    return _storyData[storyNumber].choice2;
   }
 
-  void nextStory(int choiceNumber) {}
+  void nextStory(int choiceNumber) {
+    if (storyNumber == 0) {
+      if (choiceNumber == 1) {
+        storyNumber = 2;
+      } else if (choiceNumber == 2) {
+        storyNumber = 1;
+      }
+    } else if (storyNumber == 1) {
+      if (choiceNumber == 1) {
+        storyNumber = 2;
+      } else if (choiceNumber == 2) {
+        storyNumber = 3;
+      }
+    } else if (storyNumber == 2) {
+      if (choiceNumber == 1) {
+        storyNumber = 5;
+      } else if (choiceNumber == 2) {
+        storyNumber = 4;
+      }
+    } else {
+      storyNumber = 0;
+    }
+  }
 }
 
 //TODO: Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2() so that it gets the updated story and choices rather than always just the first (0th) one.
