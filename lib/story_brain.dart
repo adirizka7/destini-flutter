@@ -67,8 +67,12 @@ class StoryBrain {
         storyNumber = 4;
       }
     } else {
-      storyNumber = 0;
+      restart();
     }
+  }
+
+  void restart() {
+    storyNumber = 0;
   }
 }
 
