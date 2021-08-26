@@ -68,25 +68,28 @@ class _StoryPageState extends State<StoryPage> {
               SizedBox(
                 height: 20.0,
               ), // SizedBox
-              Expanded(
-                flex: 2,
-                //TODO: Step 26 - Use a Flutter Visibility Widget to wrap this FlatButton.
-                //TODO: Step 28 - Set the "visible" property of the Visibility Widget to equal the output from the buttonShouldBeVisible() method in the storyBrain.
-                child: FlatButton(
-                  onPressed: () {
-                    setState(() {
-                      storyBrain.nextStory(2);
-                    });
-                  },
-                  color: Colors.blue,
-                  child: Text(
-                    storyBrain.getChoice2(),
-                    style: TextStyle(
-                      fontSize: 20.0,
-                    ), // TextStyle
-                  ), // Text
-                ), // FlatButton
-              ), // Expanded
+              Visibility(
+                child: Expanded(
+                  flex: 2,
+                  //TODO: Step 26 - Use a Flutter Visibility Widget to wrap this FlatButton.
+                  //TODO: Step 28 - Set the "visible" property of the Visibility Widget to equal the output from the buttonShouldBeVisible() method in the storyBrain.
+                  child: FlatButton(
+                    onPressed: () {
+                      setState(() {
+                        storyBrain.nextStory(2);
+                      });
+                    },
+                    color: Colors.blue,
+                    child: Text(
+                      storyBrain.getChoice2(),
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      ), // TextStyle
+                    ), // Text
+                  ), // FlatButton
+                ), // Expanded
+                visible: storyBrain.buttonShouldBeVisible(),
+              ), // Visibility
             ],
           ), // Column
         ), // SafeArea

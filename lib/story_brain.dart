@@ -47,6 +47,14 @@ class StoryBrain {
     return _storyData[_storyNumber].choice2;
   }
 
+  bool buttonShouldBeVisible() {
+    if (getChoice2() == "") {
+      return false;
+    }
+
+    return true;
+  }
+
   void nextStory(int choiceNumber) {
     if (_storyNumber == 0) {
       if (choiceNumber == 1) {
